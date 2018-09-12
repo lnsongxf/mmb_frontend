@@ -1,69 +1,65 @@
 {
-  "name": "bootstrap-font-awesome-webpack-starter",
+  "name": "mmb-frontend-travis",
+  "productName": "mmb-frontend-travis",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "My Electron application description",
+  "main": "src/index.js",
   "scripts": {
-    "build": "webpack --config webpack/prod.config.js",
-    "dev": "webpack-dev-server --config webpack/dev.config.js --host 0.0.0.0 --disable-host-check --hot",
-    "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
-    "prod": "webpack-dev-server --config webpack/prod.config.js --host 0.0.0.0 --disable-host-check",
-    "precommit": "lint-staged",
-    "formatAll": "find ./src/ -name '*.js*' | xargs prettier --write --config ./.prettierrc --config-precedence file-override"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint src --color"
   },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write --config ./.prettierrc --config-precedence file-override",
-      "git add"
-    ]
-  },
-  "author": "MMB",
-  "devDependencies": {
-    "autoprefixer": "^8.5.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "browserslist": "^3.2.8",
-    "compression-webpack-plugin": "^1.1.11",
-    "css-hot-loader": "^1.3.9",
-    "css-loader": "^0.28.11",
-    "eslint": "^4.19.1",
-    "file-loader": "^1.1.11",
-    "font-awesome-loader": "^1.0.2",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "husky": "^0.14.3",
-    "image-webpack-loader": "^4.3.1",
-    "lint-staged": "^7.1.2",
-    "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.9.2",
-    "optimize-css-assets-webpack-plugin": "^4.0.1",
-    "postcss-loader": "^2.1.5",
-    "prettier": "^1.12.1",
-    "resolve-url-loader": "^2.3.0",
-    "sass-loader": "^7.0.1",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.8.3",
-    "webpack-cli": "^3.0.0",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.2"
+  "keywords": [],
+  "author": "jan",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "npm"
+      },
+      "electronWinstallerConfig": {
+        "name": "mmb_frontend_travis"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "mmbfrontendtravis"
+      }
+    }
   },
   "dependencies": {
-    "bootstrap": "^4.1.1",
-    "font-awesome": "^4.7.0",
-    "highcharts": "^6.1.1",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.3",
-    "tether": "^1.4.4"
+    "electron-compile": "^6.4.3",
+    "electron-squirrel-startup": "^1.0.0"
   },
-  "browserslist": [
-    "defaults",
-    "not ie < 11"
-  ]
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "electron-forge": "^5.2.2",
+    "electron-prebuilt-compile": "2.0.7",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.11.1"
+  }
 }
