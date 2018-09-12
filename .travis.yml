@@ -7,4 +7,6 @@ install:
   - npm install
 
 script:
-  - npm run package --arch=x64 --platform=linux
+  - npm run package
+
+
