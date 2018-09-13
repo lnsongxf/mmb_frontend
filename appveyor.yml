@@ -7,4 +7,3 @@ install:
 
 test_script:
 - npm run make
-- dir /a-d /b /s out
