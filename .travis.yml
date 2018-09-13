@@ -1,12 +1,18 @@
 sudo: false
 language: node_js
+
+matrix:
+  include:
+  - os: linux
+  - os: osx
+    osx_image: xcode9.4
+
 node_js:
-  - 'node'
+- 'node'
 
 install:
-  - npm install
+- npm install
 
 script:
-  - npm run package
-
-
+- npm run make
+- ls -lR out/make
